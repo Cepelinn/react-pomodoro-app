@@ -4,7 +4,8 @@ import momentDurationFormatSetup from 'moment-duration-format';
 
 momentDurationFormatSetup(moment);
 
-const TimeLeft = ({ sessionLength }) => {
+const TimeLeft = ({ breakLength, sessionLength }) => {
+  const [currentSessionType, setCurrentSessionType] = useState("Session");
   const [intervalId, setIntervalId] = useState(null);
   const [timeLeft, setTimeLeft] = useState(sessionLength);
 
@@ -25,7 +26,14 @@ const TimeLeft = ({ sessionLength }) => {
           if (newTimeLeft >= 0) {
             return prevTimeLeft - 1;
           }
-          return prevTimeLeft;
+          //return prevTimeLeft;
+          if (currentSessionType === "Session") {
+            setCurrentSessionType("Break");
+            setTimeLeft(breakLength);
+          } else if ( currentSessionType === "Break") {
+            setCurrentSessionType("Session");
+            setTimeLeft(sessionLength);
+          } 
         });
       }, 1000);
     setIntervalId(newIntervalId);
