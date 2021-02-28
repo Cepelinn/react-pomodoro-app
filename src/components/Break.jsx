@@ -8,12 +8,12 @@ const Break = ({
   const breakLengthInMintes = moment.duration(breakLength, 's').minutes();
 
   return (
-    <div>
-      <h2>This is Break component</h2>
-      <div>
-        <button onClick={decrementBreakLengthByOneMinute}>dec</button>
+    <div className="container">
+      <h2 className="title">Break</h2>
+      <div className="main-block">
+        <button className="btn decBtn"onClick={decrementBreakLengthByOneMinute}>dec</button>
         <p id='breakLength'>{breakLengthInMintes}</p>
-        <button onClick={incrementBreakLengthByOneMinute}>inc</button>
+        <button className="btn incBtn"onClick={incrementBreakLengthByOneMinute}>inc</button>
       </div>
     </div>
   );

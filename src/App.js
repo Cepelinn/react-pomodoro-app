@@ -83,19 +83,18 @@ function App() {
         decrementBreakLengthByOneMinute = {decrementBreakLengthByOneMinute}
         incrementBreakLengthByOneMinute = {incrementBreakLengthByOneMinute}
       />
-      <TimeLeft 
-        timeLeft={timeLeft}
-        handleStartStopClick={handleStartStopClick}
-        sessionStartStopLabel={isStarted ? 'Stop' : 'Start'}
-      />
       <Session
         sessionLength = {sessionLength}
         decrementSessionLengthByOneMinute = {decrementSessionLengthByOneMinute}
         incrementSessionLengthByOneMinute = {incrementSessionLengthByOneMinute}
       />
-      <button onClick={handleResetButtonClick}>Reset</button>
-    </div>
-  );
+      <TimeLeft 
+        timeLeft={timeLeft}
+        handleStartStopClick={handleStartStopClick}
+        sessionStartStopLabel={isStarted ? 'Stop' : 'Start'}
+        handleResetButtonClick={handleResetButtonClick}
+      />
+    </div>);
 }
 
 export default App;
