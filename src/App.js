@@ -68,7 +68,13 @@ function App() {
     setSessionLength(sessionLength + 60);
   }
 
-
+  const handleResetButtonClick = () => {
+    clearInterval(intervalId);
+    setIntervalId(null);
+    setSessionLength(1500);
+    setBreakLength(300);
+    setTimeLeft(1500);
+  }
 
   return (
     <div className="App">
@@ -87,6 +93,7 @@ function App() {
         decrementSessionLengthByOneMinute = {decrementSessionLengthByOneMinute}
         incrementSessionLengthByOneMinute = {incrementSessionLengthByOneMinute}
       />
+      <button onClick={handleResetButtonClick}>Reset</button>
     </div>
   );
 }
