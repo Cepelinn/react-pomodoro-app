@@ -4,7 +4,6 @@ import momentDurationFormatSetup from 'moment-duration-format';
 momentDurationFormatSetup(moment);
 
 const TimeLeft = ({ timeLeft, handleStartStopClick, sessionStartStopLabel }) => {
-  console.log(sessionStartStopLabel);
 
   const formatedTimeLeft = moment.duration(timeLeft, 's').format('mm:ss');
   return(
